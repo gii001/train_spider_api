@@ -77,11 +77,14 @@ WSGI_APPLICATION = 'train_spider.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rail_inf_test',
+        'USER': 'wendell',
+        'PASSWORD': 'q3754d7Y!yr5(y)',
+        'HOST': 'rm-bp1era4dlk7cgu5cego.mysql.rds.aliyuncs.com',
+        'PORT': '3306',
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
