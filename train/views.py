@@ -40,13 +40,13 @@ def train(response,from_station,to_station):
 def station(response,from_station,to_station,train_name):
     result = get_station_start(from_station,to_station,train_name)
     for i in result['data']['data']:
-        if Station.objects.filter(NowNum = i['station_no']):
+        if Station.objects.filter(NowNum=i['station_no']):
             continue
         else:
             s = Station()
             s.NowNum = i['station_no']
             s.NowStation = i['station_name']
-            s.EasyName = Basic_info.objects.filter(RealName='train_name')
+            s.EasyName = Basic_info.objects.filter(EasyName=train_name)[0]
             s.save()
 
     return HttpResponse(json.dumps(result, ensure_ascii=False), content_type="application/json,charset=utf-8")
